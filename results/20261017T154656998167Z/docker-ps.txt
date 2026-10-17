@@ -1,0 +1,8 @@
+NAME                                 IMAGE                               COMMAND                   SERVICE              CREATED          STATUS                      PORTS
+practical1-q3-lakekeeper-1           quay.io/lakekeeper/catalog:v0.9.0   "/home/nonroot/lakek…"    lakekeeper           34 minutes ago   Up 34 minutes (healthy)     127.0.0.1:8181->8181/tcp
+practical1-q3-lakekeeper-migrate-1   quay.io/lakekeeper/catalog:v0.9.0   "/home/nonroot/lakek…"    lakekeeper-migrate   34 minutes ago   Exited (0) 14 seconds ago   
+practical1-q3-minio-1                bitnamilegacy/minio:2025.4.22       "/opt/bitnami/script…"    minio                34 minutes ago   Up 34 minutes               127.0.0.1:9000-9001->9000-9001/tcp
+practical1-q3-minio-init-1           bitnamilegacy/minio:2025.4.22       "/bin/sh -ec 'i=0\nun…"   minio-init           34 minutes ago   Exited (0) 15 seconds ago   
+practical1-q3-postgres-1             postgres:17.4-bookworm              "docker-entrypoint.s…"    postgres             34 minutes ago   Up 34 minutes (healthy)     5432/tcp
+practical1-q3-superset-1             practical1-q3-superset              "/bin/bash /app/pyth…"    superset             15 seconds ago   Up 13 seconds (healthy)     127.0.0.1:8088->8088/tcp
+practical1-q3-trino-1                trinodb/trino:484                   "/usr/lib/trino/bin/…"    trino                5 minutes ago    Up 4 minutes (healthy)      127.0.0.1:8080->8080/tcp

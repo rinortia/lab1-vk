@@ -1,0 +1,146 @@
+Поднимаю PostgreSQL, MinIO, Lakekeeper и Trino…
+ Container practical1-q3-minio-1  Running
+ Container practical1-q3-postgres-1  Running
+ Container practical1-q3-lakekeeper-1  Running
+ Container practical1-q3-postgres-1  Waiting
+ Container practical1-q3-minio-init-1  Starting
+ Container practical1-q3-minio-init-1  Started
+ Container practical1-q3-postgres-1  Healthy
+ Container practical1-q3-lakekeeper-migrate-1  Starting
+ Container practical1-q3-lakekeeper-migrate-1  Started
+ Container practical1-q3-lakekeeper-migrate-1  Waiting
+ Container practical1-q3-minio-init-1  Waiting
+ Container practical1-q3-lakekeeper-migrate-1  Exited
+ Container practical1-q3-minio-init-1  Exited
+ Container practical1-q3-lakekeeper-migrate-1  Waiting
+ Container practical1-q3-lakekeeper-1  Waiting
+ Container practical1-q3-postgres-1  Waiting
+ Container practical1-q3-minio-1  Waiting
+ Container practical1-q3-minio-init-1  Waiting
+ Container practical1-q3-lakekeeper-migrate-1  Exited
+ Container practical1-q3-minio-init-1  Exited
+ Container practical1-q3-lakekeeper-1  Healthy
+ Container practical1-q3-minio-1  Healthy
+ Container practical1-q3-postgres-1  Healthy
+ Container practical1-q3-minio-1  Running
+ Container practical1-q3-postgres-1  Running
+ Container practical1-q3-lakekeeper-1  Running
+ Container practical1-q3-trino-1  Running
+ Container practical1-q3-postgres-1  Waiting
+ Container practical1-q3-minio-init-1  Starting
+ Container practical1-q3-minio-init-1  Started
+ Container practical1-q3-postgres-1  Healthy
+ Container practical1-q3-lakekeeper-migrate-1  Starting
+ Container practical1-q3-lakekeeper-migrate-1  Started
+ Container practical1-q3-lakekeeper-migrate-1  Waiting
+ Container practical1-q3-minio-init-1  Waiting
+ Container practical1-q3-minio-init-1  Exited
+ Container practical1-q3-lakekeeper-migrate-1  Exited
+ Container practical1-q3-lakekeeper-1  Waiting
+ Container practical1-q3-lakekeeper-1  Healthy
+ Container practical1-q3-lakekeeper-migrate-1  Waiting
+ Container practical1-q3-lakekeeper-1  Waiting
+ Container practical1-q3-trino-1  Waiting
+ Container practical1-q3-postgres-1  Waiting
+ Container practical1-q3-minio-1  Waiting
+ Container practical1-q3-minio-init-1  Waiting
+ Container practical1-q3-minio-init-1  Exited
+ Container practical1-q3-lakekeeper-migrate-1  Exited
+ Container practical1-q3-lakekeeper-1  Healthy
+ Container practical1-q3-postgres-1  Healthy
+ Container practical1-q3-minio-1  Healthy
+ Container practical1-q3-trino-1  Healthy
+Источник tpch.sf1; загрузка Bronze…
+ Container practical1-q3-superset-1  Stopping
+ Container practical1-q3-superset-1  Stopped
+Запись 1/3: PARQUET/ZSTD
+Запись 1/3: PARQUET/GZIP
+Запись 1/3: ORC/ZSTD
+Запись 2/3: ORC/ZSTD
+Запись 2/3: PARQUET/ZSTD
+Запись 2/3: PARQUET/GZIP
+Запись 3/3: PARQUET/ZSTD
+Запись 3/3: ORC/ZSTD
+Запись 3/3: PARQUET/GZIP
+Подключаю Superset и читаю Bronze из BI-контейнера…
+#1 [internal] load local bake definitions
+#1 reading from stdin 675B done
+#1 DONE 0.0s
+
+#2 [internal] load build definition from Dockerfile
+#2 transferring dockerfile: 278B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/apache/superset:4.1.2
+#3 DONE 0.1s
+
+#4 [internal] load .dockerignore
+#4 transferring context: 2B done
+#4 DONE 0.0s
+
+#5 [1/2] FROM docker.io/apache/superset:4.1.2@sha256:15e110b8533d3cb6a0d529512ea71252b0ac62e3f72b1f7a5000f1361822ac26
+#5 resolve docker.io/apache/superset:4.1.2@sha256:15e110b8533d3cb6a0d529512ea71252b0ac62e3f72b1f7a5000f1361822ac26 done
+#5 DONE 0.0s
+
+#6 [2/2] RUN pip install --no-cache-dir 'trino[sqlalchemy]==0.333.0'
+#6 CACHED
+
+#7 exporting to image
+#7 exporting layers done
+#7 exporting manifest sha256:72665a036175234ac9c29f40cf7a7707c519d46dcd391241ee5eda187d33b3ac done
+#7 exporting config sha256:bd49b647568c00ad9447fd6046146fa3fea70c111d5255e22928c74c101bebac done
+#7 exporting attestation manifest sha256:dffe494fd78a22d640bd09d2b7f168715c899930e3779205aea12e6a8a9d5062 done
+#7 exporting manifest list sha256:fd42b1e1f9c4468f6ecde752474d582b850fb838c99e7aed1a052f0c74ee129b done
+#7 naming to docker.io/library/practical1-q3-superset:latest done
+#7 unpacking to docker.io/library/practical1-q3-superset:latest done
+#7 DONE 0.0s
+
+#8 resolving provenance for metadata file
+#8 DONE 0.0s
+ practical1-q3-superset  Built
+ Container practical1-q3-minio-1  Running
+ Container practical1-q3-postgres-1  Running
+ Container practical1-q3-lakekeeper-1  Running
+ Container practical1-q3-trino-1  Running
+ Container practical1-q3-superset-1  Recreate
+ Container practical1-q3-superset-1  Recreated
+ Container practical1-q3-postgres-1  Waiting
+ Container practical1-q3-minio-init-1  Starting
+ Container practical1-q3-minio-init-1  Started
+ Container practical1-q3-postgres-1  Healthy
+ Container practical1-q3-lakekeeper-migrate-1  Starting
+ Container practical1-q3-lakekeeper-migrate-1  Started
+ Container practical1-q3-lakekeeper-migrate-1  Waiting
+ Container practical1-q3-minio-init-1  Waiting
+ Container practical1-q3-lakekeeper-migrate-1  Exited
+ Container practical1-q3-minio-init-1  Exited
+ Container practical1-q3-lakekeeper-1  Waiting
+ Container practical1-q3-lakekeeper-1  Healthy
+ Container practical1-q3-trino-1  Waiting
+ Container practical1-q3-trino-1  Healthy
+ Container practical1-q3-superset-1  Starting
+ Container practical1-q3-superset-1  Started
+ Container practical1-q3-postgres-1  Waiting
+ Container practical1-q3-minio-1  Waiting
+ Container practical1-q3-minio-init-1  Waiting
+ Container practical1-q3-lakekeeper-migrate-1  Waiting
+ Container practical1-q3-lakekeeper-1  Waiting
+ Container practical1-q3-trino-1  Waiting
+ Container practical1-q3-superset-1  Waiting
+ Container practical1-q3-lakekeeper-migrate-1  Exited
+ Container practical1-q3-lakekeeper-1  Healthy
+ Container practical1-q3-minio-1  Healthy
+ Container practical1-q3-trino-1  Healthy
+ Container practical1-q3-minio-init-1  Exited
+ Container practical1-q3-postgres-1  Healthy
+ Container practical1-q3-superset-1  Healthy
+Loaded your LOCAL configuration at [/app/pythonpath/superset_config.py]
+2026-10-17 15:48:57,145:WARNING:superset.initialization:We haven't found any Content Security Policy (CSP) defined in the configurations. Please make sure to configure CSP using the TALISMAN_ENABLED and TALISMAN_CONFIG keys or any other external software. Failing to configure CSP have serious security implications. Check https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP for more information. You can disable this warning using the CONTENT_SECURITY_POLICY_WARNING key.
+/usr/local/lib/python3.10/site-packages/flask_limiter/extension.py:333: UserWarning: Using the in-memory storage for tracking rate limits as no storage was explicitly specified. This is not recommended for production use. See: https://flask-limiter.readthedocs.io#configuring-a-storage-backend for documentation about configuring the storage backend.
+  warnings.warn(
+2026-10-17 15:48:57,223:INFO:superset.utils.screenshots:No PIL installation found
+2026-10-17 15:48:57,385:INFO:superset.utils.pdf:No PIL installation found
+{"at_utc": "2026-10-17T15:48:58.299664+00:00", "tool": "Apache Superset 4.1.2", "database_name": "Lakehouse Trino", "sqlalchemy_uri": "trino://bi@trino:8080/iceberg", "executed_from": "superset container using SQLAlchemy Trino driver", "sql": ["SELECT count(*) FROM iceberg.bronze.lineitem", "SELECT orderkey, linenumber, extendedprice, discount, shipdate FROM iceberg.bronze.lineitem ORDER BY orderkey, linenumber LIMIT 10"], "bronze_lineitem_rows": 6001215, "preview": [{"orderkey": 1, "linenumber": 1, "extendedprice": 21168.23, "discount": 0.04, "shipdate": "1996-03-13"}, {"orderkey": 1, "linenumber": 2, "extendedprice": 45983.16, "discount": 0.09, "shipdate": "1996-04-12"}, {"orderkey": 1, "linenumber": 3, "extendedprice": 13309.6, "discount": 0.1, "shipdate": "1996-01-29"}, {"orderkey": 1, "linenumber": 4, "extendedprice": 28955.64, "discount": 0.09, "shipdate": "1996-04-21"}, {"orderkey": 1, "linenumber": 5, "extendedprice": 22824.48, "discount": 0.1, "shipdate": "1996-03-30"}, {"orderkey": 1, "linenumber": 6, "extendedprice": 49620.16, "discount": 0.07, "shipdate": "1996-01-30"}, {"orderkey": 2, "linenumber": 1, "extendedprice": 44694.46, "discount": 0.0, "shipdate": "1997-01-28"}, {"orderkey": 3, "linenumber": 1, "extendedprice": 54058.05, "discount": 0.06, "shipdate": "1994-02-02"}, {"orderkey": 3, "linenumber": 2, "extendedprice": 46796.47, "discount": 0.1, "shipdate": "1993-11-09"}, {"orderkey": 3, "linenumber": 3, "extendedprice": 39890.88, "discount": 0.06, "shipdate": "1994-01-16"}], "dashboard_path": "/superset/dashboard/q3-lakehouse/", "dashboard_id": 1, "chart_ids": [1, 2], "ui_screenshot_attached": false}
+Готово. Отчёт: /Users/marina_rovniagina/Documents/Codex/2026-10-17/lklk/outputs/lakehouse-deployment/report.md
+Доказательства: /Users/marina_rovniagina/Documents/Codex/2026-10-17/lklk/outputs/lakehouse-deployment/results/20261017T154656998167Z
+Superset: http://localhost:8088 (admin / admin-local)

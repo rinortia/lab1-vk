@@ -1,0 +1,166 @@
+name: practical1-q3
+services:
+  lakekeeper:
+    command:
+      - serve
+    depends_on:
+      lakekeeper-migrate:
+        condition: service_completed_successfully
+        required: true
+      minio-init:
+        condition: service_completed_successfully
+        required: true
+    environment:
+      LAKEKEEPER__AUTHZ_BACKEND: allowall
+      LAKEKEEPER__PG_DATABASE_URL_READ: postgresql://lakekeeper:lakekeeper-local@postgres:5432/lakekeeper
+      LAKEKEEPER__PG_DATABASE_URL_WRITE: postgresql://lakekeeper:lakekeeper-local@postgres:5432/lakekeeper
+      LAKEKEEPER__PG_ENCRYPTION_KEY: local-lab-encryption-key-change-in-production
+      RUST_LOG: info
+    healthcheck:
+      test:
+        - CMD
+        - /home/nonroot/lakekeeper
+        - healthcheck
+      timeout: 10s
+      interval: 3s
+      retries: 40
+      start_period: 10s
+    image: quay.io/lakekeeper/catalog:v0.9.0
+    networks:
+      default: null
+    ports:
+      - mode: ingress
+        host_ip: 127.0.0.1
+        target: 8181
+        published: "8181"
+        protocol: tcp
+  lakekeeper-migrate:
+    command:
+      - migrate
+    depends_on:
+      postgres:
+        condition: service_healthy
+        required: true
+    environment:
+      LAKEKEEPER__AUTHZ_BACKEND: allowall
+      LAKEKEEPER__PG_DATABASE_URL_READ: postgresql://lakekeeper:lakekeeper-local@postgres:5432/lakekeeper
+      LAKEKEEPER__PG_DATABASE_URL_WRITE: postgresql://lakekeeper:lakekeeper-local@postgres:5432/lakekeeper
+      LAKEKEEPER__PG_ENCRYPTION_KEY: local-lab-encryption-key-change-in-production
+      RUST_LOG: info
+    image: quay.io/lakekeeper/catalog:v0.9.0
+    networks:
+      default: null
+    restart: "no"
+  minio:
+    environment:
+      MINIO_API_PORT_NUMBER: "9000"
+      MINIO_CONSOLE_PORT_NUMBER: "9001"
+      MINIO_ROOT_PASSWORD: minioadmin-local
+      MINIO_ROOT_USER: minioadmin
+      MINIO_SCHEME: http
+    image: bitnamilegacy/minio:2025.4.22
+    networks:
+      default: null
+    ports:
+      - mode: ingress
+        host_ip: 127.0.0.1
+        target: 9000
+        published: "9000"
+        protocol: tcp
+      - mode: ingress
+        host_ip: 127.0.0.1
+        target: 9001
+        published: "9001"
+        protocol: tcp
+    volumes:
+      - type: volume
+        source: minio-data
+        target: /bitnami/minio/data
+        volume: {}
+  minio-init:
+    command:
+      - |
+        i=0
+        until mc --config-dir /tmp/mc alias set lab http://minio:9000 minioadmin minioadmin-local; do
+          i=$$((i+1))
+          [ "$$i" -lt 60 ] || exit 1
+          sleep 2
+        done
+        mc --config-dir /tmp/mc mb --ignore-existing lab/warehouse
+    depends_on:
+      minio:
+        condition: service_started
+        required: true
+    entrypoint:
+      - /bin/sh
+      - -ec
+    image: bitnamilegacy/minio:2025.4.22
+    networks:
+      default: null
+    restart: "no"
+  postgres:
+    environment:
+      POSTGRES_DB: lakekeeper
+      POSTGRES_PASSWORD: lakekeeper-local
+      POSTGRES_USER: lakekeeper
+    healthcheck:
+      test:
+        - CMD-SHELL
+        - pg_isready -U lakekeeper -d lakekeeper
+      timeout: 5s
+      interval: 3s
+      retries: 30
+    image: postgres:17.4-bookworm
+    networks:
+      default: null
+    volumes:
+      - type: volume
+        source: postgres-data
+        target: /var/lib/postgresql/data
+        volume: {}
+  trino:
+    depends_on:
+      lakekeeper:
+        condition: service_healthy
+        required: true
+    healthcheck:
+      test:
+        - CMD
+        - curl
+        - -f
+        - http://localhost:8080/v1/info
+      timeout: 5s
+      interval: 5s
+      retries: 60
+      start_period: 20s
+    image: trinodb/trino:484
+    mem_limit: "5368709120"
+    networks:
+      default: null
+    ports:
+      - mode: ingress
+        host_ip: 127.0.0.1
+        target: 8080
+        published: "8080"
+        protocol: tcp
+    volumes:
+      - type: bind
+        source: /Users/marina_rovniagina/Documents/Codex/2026-10-17/lklk/outputs/lakehouse-deployment/config/trino
+        target: /etc/trino
+        read_only: true
+        bind:
+          create_host_path: true
+networks:
+  default:
+    name: practical1-q3_default
+volumes:
+  minio-data:
+    name: practical1-q3_minio-data
+  postgres-data:
+    name: practical1-q3_postgres-data
+x-lakekeeper-env:
+  LAKEKEEPER__AUTHZ_BACKEND: allowall
+  LAKEKEEPER__PG_DATABASE_URL_READ: postgresql://lakekeeper:lakekeeper-local@postgres:5432/lakekeeper
+  LAKEKEEPER__PG_DATABASE_URL_WRITE: postgresql://lakekeeper:lakekeeper-local@postgres:5432/lakekeeper
+  LAKEKEEPER__PG_ENCRYPTION_KEY: local-lab-encryption-key-change-in-production
+  RUST_LOG: info

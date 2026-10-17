@@ -1,0 +1,7 @@
+table,rows,data_files,bytes,MB,format,codec,partitioning
+bronze.customer,150000,1,244307,0.244307,PARQUET,ZSTD,нет
+bronze.orders,1500000,1,6984404,6.984404,PARQUET,ZSTD,нет
+bronze.lineitem,6001215,2,41458757,41.458757,PARQUET,ZSTD,нет
+silver.q3_lines,30519,1,453352,0.453352,PARQUET,ZSTD,нет
+silver.rejected_rows,0,0,0,0.0,PARQUET,ZSTD,нет
+gold.q3_shipping_priority,10,1,841,0.000841,PARQUET,ZSTD,нет

@@ -1,0 +1,18 @@
+{
+  "table": "iceberg.silver.evolution_demo",
+  "snapshot_id": 757705280548165639,
+  "restored_rows": 1000,
+  "data_files_unchanged_after_add_rename": true,
+  "files_before": [
+    [
+      "s3://warehouse/lab/01a14a88-e1a7-7d81-9001-d5ef3901cf8f/evolution_demo-3eaaeca68b4548aba4656ad8bccd95b0/data/20261017_154714_00324_e85af-cd499aae-4336-4a38-b359-56d2626e5342.parquet",
+      16740
+    ]
+  ],
+  "files_after": [
+    [
+      "s3://warehouse/lab/01a14a88-e1a7-7d81-9001-d5ef3901cf8f/evolution_demo-3eaaeca68b4548aba4656ad8bccd95b0/data/20261017_154714_00324_e85af-cd499aae-4336-4a38-b359-56d2626e5342.parquet",
+      16740
+    ]
+  ]
+}

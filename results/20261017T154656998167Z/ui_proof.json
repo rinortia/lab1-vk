@@ -1,0 +1,14 @@
+{
+  "at_utc": "2026-10-17T15:50:55.214940+00:00",
+  "dashboard": "http://localhost:8088/superset/dashboard/q3-lakehouse/",
+  "dashboard_bronze_rows": 10,
+  "dashboard_gold_rows": 10,
+  "sql_lab_bronze_count": 6001215,
+  "sql_lab_preview_rows": 10,
+  "screenshots": [
+    "dashboard.jpg",
+    "sql-lab-count.jpg",
+    "sql-lab-preview.jpg"
+  ],
+  "note": "Verified in the browser after the completed run; separate from the console-only bi_proof.json."
+}

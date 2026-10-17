@@ -1,0 +1,14 @@
+{
+  "macOS": "15.3",
+  "machine": "arm64",
+  "model": "Mac16,12",
+  "host_memory_bytes": 17179869184,
+  "host_cpu_count": 10,
+  "docker": {
+    "ServerVersion": "28.5.1",
+    "Architecture": "aarch64",
+    "NCPU": 10,
+    "MemTotal": 8218034176,
+    "OperatingSystem": "Docker Desktop"
+  }
+}

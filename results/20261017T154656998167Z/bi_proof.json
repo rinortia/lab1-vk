@@ -1,0 +1,91 @@
+{
+  "at_utc": "2026-10-17T15:48:58.299664+00:00",
+  "tool": "Apache Superset 4.1.2",
+  "database_name": "Lakehouse Trino",
+  "sqlalchemy_uri": "trino://bi@trino:8080/iceberg",
+  "executed_from": "superset container using SQLAlchemy Trino driver",
+  "sql": [
+    "SELECT count(*) FROM iceberg.bronze.lineitem",
+    "SELECT orderkey, linenumber, extendedprice, discount, shipdate FROM iceberg.bronze.lineitem ORDER BY orderkey, linenumber LIMIT 10"
+  ],
+  "bronze_lineitem_rows": 6001215,
+  "preview": [
+    {
+      "orderkey": 1,
+      "linenumber": 1,
+      "extendedprice": 21168.23,
+      "discount": 0.04,
+      "shipdate": "1996-03-13"
+    },
+    {
+      "orderkey": 1,
+      "linenumber": 2,
+      "extendedprice": 45983.16,
+      "discount": 0.09,
+      "shipdate": "1996-04-12"
+    },
+    {
+      "orderkey": 1,
+      "linenumber": 3,
+      "extendedprice": 13309.6,
+      "discount": 0.1,
+      "shipdate": "1996-01-29"
+    },
+    {
+      "orderkey": 1,
+      "linenumber": 4,
+      "extendedprice": 28955.64,
+      "discount": 0.09,
+      "shipdate": "1996-04-21"
+    },
+    {
+      "orderkey": 1,
+      "linenumber": 5,
+      "extendedprice": 22824.48,
+      "discount": 0.1,
+      "shipdate": "1996-03-30"
+    },
+    {
+      "orderkey": 1,
+      "linenumber": 6,
+      "extendedprice": 49620.16,
+      "discount": 0.07,
+      "shipdate": "1996-01-30"
+    },
+    {
+      "orderkey": 2,
+      "linenumber": 1,
+      "extendedprice": 44694.46,
+      "discount": 0.0,
+      "shipdate": "1997-01-28"
+    },
+    {
+      "orderkey": 3,
+      "linenumber": 1,
+      "extendedprice": 54058.05,
+      "discount": 0.06,
+      "shipdate": "1994-02-02"
+    },
+    {
+      "orderkey": 3,
+      "linenumber": 2,
+      "extendedprice": 46796.47,
+      "discount": 0.1,
+      "shipdate": "1993-11-09"
+    },
+    {
+      "orderkey": 3,
+      "linenumber": 3,
+      "extendedprice": 39890.88,
+      "discount": 0.06,
+      "shipdate": "1994-01-16"
+    }
+  ],
+  "dashboard_path": "/superset/dashboard/q3-lakehouse/",
+  "dashboard_id": 1,
+  "chart_ids": [
+    1,
+    2
+  ],
+  "ui_screenshot_attached": false
+}

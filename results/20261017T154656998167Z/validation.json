@@ -1,0 +1,122 @@
+[
+  {
+    "check": "bronze_customer_matches_source",
+    "actual": true,
+    "expected": true,
+    "passed": true
+  },
+  {
+    "check": "unique_customer",
+    "actual": 0,
+    "expected": 0,
+    "passed": true
+  },
+  {
+    "check": "bronze_orders_matches_source",
+    "actual": true,
+    "expected": true,
+    "passed": true
+  },
+  {
+    "check": "unique_orders",
+    "actual": 0,
+    "expected": 0,
+    "passed": true
+  },
+  {
+    "check": "bronze_lineitem_matches_source",
+    "actual": true,
+    "expected": true,
+    "passed": true
+  },
+  {
+    "check": "unique_lineitem",
+    "actual": 0,
+    "expected": 0,
+    "passed": true
+  },
+  {
+    "check": "orders_customer_fk",
+    "actual": 0,
+    "expected": 0,
+    "passed": true
+  },
+  {
+    "check": "lineitem_orders_fk",
+    "actual": 0,
+    "expected": 0,
+    "passed": true
+  },
+  {
+    "check": "tpch_has_no_rejected_rows",
+    "actual": 0,
+    "expected": 0,
+    "passed": true
+  },
+  {
+    "check": "silver_business_predicates",
+    "actual": 0,
+    "expected": 0,
+    "passed": true
+  },
+  {
+    "check": "gold_matches_source_q3",
+    "actual": true,
+    "expected": true,
+    "passed": true
+  },
+  {
+    "check": "gold_ten_rows",
+    "actual": 10,
+    "expected": 10,
+    "passed": true
+  },
+  {
+    "check": "new_column_is_null",
+    "actual": 0,
+    "expected": 0,
+    "passed": true
+  },
+  {
+    "check": "schema_evolution_no_data_rewrite",
+    "actual": true,
+    "expected": true,
+    "passed": true
+  },
+  {
+    "check": "demo_deleted",
+    "actual": 0,
+    "expected": 0,
+    "passed": true
+  },
+  {
+    "check": "time_travel_reads_old_data",
+    "actual": 1000,
+    "expected": 1000,
+    "passed": true
+  },
+  {
+    "check": "rollback_restores_count",
+    "actual": 1000,
+    "expected": 1000,
+    "passed": true
+  },
+  {
+    "check": "rollback_restores_checksum",
+    "actual": "C3909386A580E2E6",
+    "expected": "C3909386A580E2E6",
+    "passed": true
+  },
+  {
+    "check": "all_benchmark_copies_and_q3_results_match",
+    "actual": true,
+    "expected": true,
+    "passed": true
+  },
+  {
+    "check": "superset_reads_bronze",
+    "actual": 6001215,
+    "expected": 6001215,
+    "passed": true
+  }
+]

@@ -1,0 +1,418 @@
+{
+  "status": "completed",
+  "run_id": "20261017T154656998167Z",
+  "author": "Ровнягина Марина Александровна",
+  "scale": "sf1",
+  "query_repeats": 5,
+  "write_repeats": 3,
+  "host": {
+    "system": "macOS-15.3-arm64-arm-64bit-Mach-O",
+    "python": "3.14.3",
+    "host_cpus": 10
+  },
+  "docker": {
+    "ServerVersion": "28.5.1",
+    "OSType": "linux",
+    "Architecture": "aarch64",
+    "NCPU": 10,
+    "MemTotal": 8218034176,
+    "OperatingSystem": "Docker Desktop",
+    "Driver": "overlayfs"
+  },
+  "checks": [
+    {
+      "check": "bronze_customer_matches_source",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "check": "unique_customer",
+      "actual": 0,
+      "expected": 0,
+      "passed": true
+    },
+    {
+      "check": "bronze_orders_matches_source",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "check": "unique_orders",
+      "actual": 0,
+      "expected": 0,
+      "passed": true
+    },
+    {
+      "check": "bronze_lineitem_matches_source",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "check": "unique_lineitem",
+      "actual": 0,
+      "expected": 0,
+      "passed": true
+    },
+    {
+      "check": "orders_customer_fk",
+      "actual": 0,
+      "expected": 0,
+      "passed": true
+    },
+    {
+      "check": "lineitem_orders_fk",
+      "actual": 0,
+      "expected": 0,
+      "passed": true
+    },
+    {
+      "check": "tpch_has_no_rejected_rows",
+      "actual": 0,
+      "expected": 0,
+      "passed": true
+    },
+    {
+      "check": "silver_business_predicates",
+      "actual": 0,
+      "expected": 0,
+      "passed": true
+    },
+    {
+      "check": "gold_matches_source_q3",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "check": "gold_ten_rows",
+      "actual": 10,
+      "expected": 10,
+      "passed": true
+    },
+    {
+      "check": "new_column_is_null",
+      "actual": 0,
+      "expected": 0,
+      "passed": true
+    },
+    {
+      "check": "schema_evolution_no_data_rewrite",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "check": "demo_deleted",
+      "actual": 0,
+      "expected": 0,
+      "passed": true
+    },
+    {
+      "check": "time_travel_reads_old_data",
+      "actual": 1000,
+      "expected": 1000,
+      "passed": true
+    },
+    {
+      "check": "rollback_restores_count",
+      "actual": 1000,
+      "expected": 1000,
+      "passed": true
+    },
+    {
+      "check": "rollback_restores_checksum",
+      "actual": "C3909386A580E2E6",
+      "expected": "C3909386A580E2E6",
+      "passed": true
+    },
+    {
+      "check": "all_benchmark_copies_and_q3_results_match",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "check": "superset_reads_bronze",
+      "actual": 6001215,
+      "expected": 6001215,
+      "passed": true
+    }
+  ],
+  "inventory": [
+    {
+      "table": "bronze.customer",
+      "rows": 150000,
+      "data_files": 1,
+      "bytes": 244307,
+      "MB": 0.244307,
+      "format": "PARQUET",
+      "codec": "ZSTD",
+      "partitioning": "нет"
+    },
+    {
+      "table": "bronze.orders",
+      "rows": 1500000,
+      "data_files": 1,
+      "bytes": 6984404,
+      "MB": 6.984404,
+      "format": "PARQUET",
+      "codec": "ZSTD",
+      "partitioning": "нет"
+    },
+    {
+      "table": "bronze.lineitem",
+      "rows": 6001215,
+      "data_files": 2,
+      "bytes": 41458757,
+      "MB": 41.458757,
+      "format": "PARQUET",
+      "codec": "ZSTD",
+      "partitioning": "нет"
+    },
+    {
+      "table": "silver.q3_lines",
+      "rows": 30519,
+      "data_files": 1,
+      "bytes": 453352,
+      "MB": 0.453352,
+      "format": "PARQUET",
+      "codec": "ZSTD",
+      "partitioning": "нет"
+    },
+    {
+      "table": "silver.rejected_rows",
+      "rows": 0,
+      "data_files": 0,
+      "bytes": 0,
+      "MB": 0.0,
+      "format": "PARQUET",
+      "codec": "ZSTD",
+      "partitioning": "нет"
+    },
+    {
+      "table": "gold.q3_shipping_priority",
+      "rows": 10,
+      "data_files": 1,
+      "bytes": 841,
+      "MB": 0.000841,
+      "format": "PARQUET",
+      "codec": "ZSTD",
+      "partitioning": "нет"
+    }
+  ],
+  "benchmark": [
+    {
+      "format": "PARQUET",
+      "codec": "GZIP",
+      "write_elapsed_median_s": 5.022,
+      "write_wall_median_s": 5.148837750981329,
+      "query_elapsed_median_s": 0.583,
+      "query_wall_median_s": 0.6170973749831319,
+      "query_elapsed_min_s": 0.456,
+      "query_elapsed_max_s": 0.608,
+      "query_elapsed_stdev_s": 0.07242720483354302,
+      "size_MB_median": 48.896932,
+      "size_MB_final": 48.895469,
+      "data_files_final": 4
+    },
+    {
+      "format": "PARQUET",
+      "codec": "ZSTD",
+      "write_elapsed_median_s": 2.409,
+      "write_wall_median_s": 2.5447632080176845,
+      "query_elapsed_median_s": 0.373,
+      "query_wall_median_s": 0.40377487501245923,
+      "query_elapsed_min_s": 0.343,
+      "query_elapsed_max_s": 0.438,
+      "query_elapsed_stdev_s": 0.035837131581643075,
+      "size_MB_median": 48.630376,
+      "size_MB_final": 48.610773,
+      "data_files_final": 4
+    },
+    {
+      "format": "ORC",
+      "codec": "ZSTD",
+      "write_elapsed_median_s": 2.783,
+      "write_wall_median_s": 2.8831293739785906,
+      "query_elapsed_median_s": 0.394,
+      "query_wall_median_s": 0.42648766699130647,
+      "query_elapsed_min_s": 0.385,
+      "query_elapsed_max_s": 0.753,
+      "query_elapsed_stdev_s": 0.15874287385580493,
+      "size_MB_median": 54.234434,
+      "size_MB_final": 54.238917,
+      "data_files_final": 4
+    }
+  ],
+  "execution_environment": "Локальный Docker на машине, выполнившей run",
+  "catalog": {
+    "server": {
+      "version": "0.9.0",
+      "bootstrapped": true,
+      "server-id": "00000000-0000-0000-0000-000000000000",
+      "default-project-id": "00000000-0000-0000-0000-000000000000",
+      "authz-backend": "allow-all",
+      "aws-system-identities-enabled": false,
+      "azure-system-identities-enabled": false,
+      "gcp-system-identities-enabled": false,
+      "queues": [
+        "tabular_purge",
+        "tabular_expiration"
+      ]
+    },
+    "warehouse_id": "6cc465d2-ca3d-11f1-8885-4f9d58b1e547"
+  },
+  "image_digests": {
+    "postgres": {
+      "id": "sha256:304ab813518754228f9f792f79d6da36359b82d8ecf418096c636725f8c930ad",
+      "repo_digests": [
+        "postgres@sha256:304ab813518754228f9f792f79d6da36359b82d8ecf418096c636725f8c930ad"
+      ]
+    },
+    "minio": {
+      "id": "sha256:50cec18ac4184af4671a78aedd5554942c8ae105d51a465fa82037949046da01",
+      "repo_digests": [
+        "bitnamilegacy/minio@sha256:50cec18ac4184af4671a78aedd5554942c8ae105d51a465fa82037949046da01"
+      ]
+    },
+    "lakekeeper": {
+      "id": "sha256:6959d072d2b5cf812fdb082a0d70a27f3681dcd82919f157542ba8fec10a981e",
+      "repo_digests": [
+        "quay.io/lakekeeper/catalog@sha256:6959d072d2b5cf812fdb082a0d70a27f3681dcd82919f157542ba8fec10a981e"
+      ]
+    },
+    "trino": {
+      "id": "sha256:2704eb53935af5e582d63d6033e9bf99d20c325e9b0e30b1016ef59a4773979f",
+      "repo_digests": [
+        "trinodb/trino@sha256:2704eb53935af5e582d63d6033e9bf99d20c325e9b0e30b1016ef59a4773979f"
+      ]
+    }
+  },
+  "source_fingerprints": {
+    "customer": [
+      150000,
+      "08BA4921E7EAC751"
+    ],
+    "orders": [
+      1500000,
+      "C4F3EBABDC8E65FC"
+    ],
+    "lineitem": [
+      6001215,
+      "201F88D302AF5579"
+    ]
+  },
+  "evolution": {
+    "table": "iceberg.silver.evolution_demo",
+    "snapshot_id": 757705280548165639,
+    "restored_rows": 1000,
+    "data_files_unchanged_after_add_rename": true,
+    "files_before": [
+      [
+        "s3://warehouse/lab/01a14a88-e1a7-7d81-9001-d5ef3901cf8f/evolution_demo-3eaaeca68b4548aba4656ad8bccd95b0/data/20261017_154714_00324_e85af-cd499aae-4336-4a38-b359-56d2626e5342.parquet",
+        16740
+      ]
+    ],
+    "files_after": [
+      [
+        "s3://warehouse/lab/01a14a88-e1a7-7d81-9001-d5ef3901cf8f/evolution_demo-3eaaeca68b4548aba4656ad8bccd95b0/data/20261017_154714_00324_e85af-cd499aae-4336-4a38-b359-56d2626e5342.parquet",
+        16740
+      ]
+    ]
+  },
+  "bi": {
+    "at_utc": "2026-10-17T15:48:58.299664+00:00",
+    "tool": "Apache Superset 4.1.2",
+    "database_name": "Lakehouse Trino",
+    "sqlalchemy_uri": "trino://bi@trino:8080/iceberg",
+    "executed_from": "superset container using SQLAlchemy Trino driver",
+    "sql": [
+      "SELECT count(*) FROM iceberg.bronze.lineitem",
+      "SELECT orderkey, linenumber, extendedprice, discount, shipdate FROM iceberg.bronze.lineitem ORDER BY orderkey, linenumber LIMIT 10"
+    ],
+    "bronze_lineitem_rows": 6001215,
+    "preview": [
+      {
+        "orderkey": 1,
+        "linenumber": 1,
+        "extendedprice": 21168.23,
+        "discount": 0.04,
+        "shipdate": "1996-03-13"
+      },
+      {
+        "orderkey": 1,
+        "linenumber": 2,
+        "extendedprice": 45983.16,
+        "discount": 0.09,
+        "shipdate": "1996-04-12"
+      },
+      {
+        "orderkey": 1,
+        "linenumber": 3,
+        "extendedprice": 13309.6,
+        "discount": 0.1,
+        "shipdate": "1996-01-29"
+      },
+      {
+        "orderkey": 1,
+        "linenumber": 4,
+        "extendedprice": 28955.64,
+        "discount": 0.09,
+        "shipdate": "1996-04-21"
+      },
+      {
+        "orderkey": 1,
+        "linenumber": 5,
+        "extendedprice": 22824.48,
+        "discount": 0.1,
+        "shipdate": "1996-03-30"
+      },
+      {
+        "orderkey": 1,
+        "linenumber": 6,
+        "extendedprice": 49620.16,
+        "discount": 0.07,
+        "shipdate": "1996-01-30"
+      },
+      {
+        "orderkey": 2,
+        "linenumber": 1,
+        "extendedprice": 44694.46,
+        "discount": 0.0,
+        "shipdate": "1997-01-28"
+      },
+      {
+        "orderkey": 3,
+        "linenumber": 1,
+        "extendedprice": 54058.05,
+        "discount": 0.06,
+        "shipdate": "1994-02-02"
+      },
+      {
+        "orderkey": 3,
+        "linenumber": 2,
+        "extendedprice": 46796.47,
+        "discount": 0.1,
+        "shipdate": "1993-11-09"
+      },
+      {
+        "orderkey": 3,
+        "linenumber": 3,
+        "extendedprice": 39890.88,
+        "discount": 0.06,
+        "shipdate": "1994-01-16"
+      }
+    ],
+    "dashboard_path": "/superset/dashboard/q3-lakehouse/",
+    "dashboard_id": 1,
+    "chart_ids": [
+      1,
+      2
+    ],
+    "ui_screenshot_attached": false
+  },
+  "finished_at_utc": "2026-10-17T15:48:58.684209+00:00"
+}
